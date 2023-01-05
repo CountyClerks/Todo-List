@@ -33,7 +33,7 @@ body {
 #card-header {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
     border-bottom: solid #f9f9f9;
     border-bottom-width: .075rem;
     padding-top: 0;
@@ -44,13 +44,13 @@ body {
 
 #card-header > h2 {
     padding-left: 15px;
-    padding-top: 0px;
+    padding-bottom: 2px;
 }
 
 #header-buttons {
     display: flex;
-    justify-content: space-between;
-    padding-left: 100px;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 button {
@@ -64,9 +64,14 @@ button {
 }
 
 #project-tabs {
-    padding-right: 10px;
-    padding-left: 50px;
+    display: grid;
+    max-width: 500px;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    overflow-y: auto;
 }
+
+
 
 #default-button, #new-project-button {
     font-weight: bold;
@@ -133,7 +138,8 @@ button {
     background-color: #2046a5;
 }
 
-/* #modal {
+
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -146,7 +152,10 @@ button {
     background-color: rgba(0,0,0,0.4);
 }
 
-#modal-content {
+#project-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
@@ -154,4 +163,29 @@ button {
     border-radius: 5px;
     width: 20%;
     height: 20%;
-} */
+}
+
+#project-modal-left {
+    padding-left: 15%;
+}
+
+#project-modal-right {
+    padding-left: 105px;
+}
+
+#project-modal-right > button {
+    background-color: #3f6ad8;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 150px;
+}
+#project-modal-right > button:hover {
+    background-color: #2046a5;
+}
+
+#project-modal-content > input {
+    height: 20px;
+    border-radius: 1px;
+    border: solid 1px black;
+}
