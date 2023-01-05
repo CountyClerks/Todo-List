@@ -139,7 +139,7 @@ button {
 }
 
 
-.modal {
+.project-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -165,22 +165,22 @@ button {
     height: 20%;
 }
 
-#project-modal-left {
+#project-modal-top {
     padding-left: 15%;
 }
 
-#project-modal-right {
+#project-modal-bottom {
     padding-left: 105px;
 }
 
-#project-modal-right > button {
+#project-modal-bottom > button {
     background-color: #3f6ad8;
     border: none;
     color: white;
     height: 50px;
     width: 150px;
 }
-#project-modal-right > button:hover {
+#project-modal-bottom > button:hover {
     background-color: #2046a5;
 }
 
@@ -188,4 +188,52 @@ button {
     height: 20px;
     border-radius: 1px;
     border: solid 1px black;
+}
+
+.new-task-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#task-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 20%;
+    height: 20%;
+}
+
+#task-modal-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+#task-modal-top > select {
+    width: 75px;
+    height: 22px;
+    border-radius: 1px;
+}
+
+#task-modal-bottom > button {
+    background-color: #3f6ad8;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 150px;
+}
+#task-modal-bottom > button:hover {
+    background-color: #2046a5;
 }

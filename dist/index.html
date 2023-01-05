@@ -14,9 +14,6 @@
             <div id="header-buttons">
                 <div id="project-tabs">
                     <button id="default-button" type="submit">Default</button>
-                    <button id="default-button" type="submit">Kitchen</button>
-                    <button id="default-button" type="submit">Room</button>
-                    <button id="default-button" type="submit">Garage</button>
                 </div>
                 <button id="new-project-button" type="submit">New Project</button>
             </div>
@@ -33,59 +30,38 @@
                     <button class="trash-button" type="submit"></button>
                 </div>
             </div>
-            <div class="card" id="2">
-                <div id="card-left">
-                    <label class="check-control">
-                        <input type="checkbox" id="project-done" name="project-done">
-                    </label>
-                    <div class="task-heading">Finish Laundry</div>
-                </div>
-                <div id="card-right">
-                    <button class="trash-button" type="submit"></button>
-                </div>
-            </div>
-            <div class="card" id="3">
-                <div id="card-left">
-                    <label class="check-control">
-                        <input type="checkbox" id="project-done" name="project-done">
-                    </label>
-                    <div class="task-heading">Finish Laundry</div>
-                </div>
-                <div id="card-right">
-                    <button class="trash-button" type="submit"></button>
-                </div>
-            </div>
-            <div class="card" id="4">
-                <div id="card-left">
-                    <label class="check-control">
-                        <input type="checkbox" id="project-done" name="project-done">
-                    </label>
-                    <div class="task-heading">Finish Laundry</div>
-                </div>
-                <div id="card-right">
-                    <button class="trash-button" type="submit"></button>
-                </div>
-            </div>
         </div>
         <div class="footer">
             <button type="submit" id="add-task">Add Task</button>
         </div>
-        <div class="modal">
+        <div class="project-modal">
             <div id="project-modal-content">
-                <div id="project-modal-left">
+                <div id="project-modal-top">
                     <label for="project-name">Project Name:</label>
                     <input type="text" name="project-name" id="project-name">
                 </div>
-                <div id="project-modal-right">
+                <div id="project-modal-bottom">
                     <button type="submit">Add New Project</button>
                 </div>
             </div>
         </div>
-        <!-- <div id="new-task-modal">       FINISH AFTER HTML AND CSS FOR CONTAINER ARE DONE
+        <div class="new-task-modal">
             <div id="task-modal-content">
-                asdasd
+                <div id="task-modal-top">
+                    <div id="task-modal-inputs">
+                        <label for="task-name">Task Name:</label>
+                        <input type="text" name="project-name" id="project-name">
+                        <label for="choose-project">Project:</label>
+                        <select name="choose-project" id="choose-project">
+                            <option>Default</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="task-modal-bottom">
+                    <button type="submit">Add New Task</button>
+                </div>
             </div>
-        </div> -->
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
