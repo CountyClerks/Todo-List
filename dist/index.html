@@ -15,7 +15,7 @@
                 <div id="project-tabs">
                     <button id="default-button" type="submit">Default</button>
                 </div>
-                <button id="new-project-button" type="submit">New Project</button>
+                <button id="new-project-button" type="submit">Add New Project</button>
             </div>
         </div>
         <div id="card-content">
@@ -36,13 +36,15 @@
         </div>
         <div class="project-modal">
             <div id="project-modal-content">
-                <div id="project-modal-top">
-                    <label for="project-name">Project Name:</label>
-                    <input type="text" name="project-name" id="project-name">
-                </div>
-                <div id="project-modal-bottom">
-                    <button type="submit">Add New Project</button>
-                </div>
+                <form action="#" class="project-form" id="project-form">
+                    <div id="project-modal-top">
+                        <label for="project-name">Project Name:</label>
+                        <input type="text" name="project-name" id="project-name" />
+                    </div>
+                    <div id="project-modal-bottom">
+                        <button type="submit" id="add-project">Add New Project</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="new-task-modal">
