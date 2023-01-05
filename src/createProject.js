@@ -1,3 +1,4 @@
+import renderProjectModal from "./modal";
 export default function createProject() {
 
     const newProjectBtn = document.querySelector("#new-project-button");
@@ -12,12 +13,6 @@ export default function createProject() {
     function Project(title, index) {
         this.title = title;
         this.index = index;
-    }
-
-    function renderProjectModal () {
-        newProjectBtn.addEventListener("click", () => {
-            projectModal.style.display = "flex";
-        })
     }
 
     function addProject () {
@@ -48,7 +43,6 @@ export default function createProject() {
     function clearModal() {
         document.addEventListener("click", function(e) {
             if(e.target.matches("#add-project")) {
-                // addProjectTab();
                 projectForm.reset();
                 closeModal();
             }
