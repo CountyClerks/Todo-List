@@ -29,26 +29,16 @@ export default function createProject() {
             );
             projectList.push(project);
             console.log(projectList);
-            projectToDOM();
+            createProjectTab();
+            projectForm.reset();
         })
     }
 
-    function createProjectTab(project, index) {
-        let projectIndex = index;
-
+    function createProjectTab(project) {
         const projectTab = document.createElement('button');
-        projectTab.setAttribute('id', `${project.title}-button`);
-        projectTab.innerHTML = `${project.title}`;
+        projectTab.setAttribute('id', `${projectTitle.value}-button`);
+        projectTab.innerHTML = `${projectTitle.value}`
         projectTabs.appendChild(projectTab);
-
-        console.log(projectTab.value);
-
-    }
-
-    function projectToDOM() {
-        projectList.forEach((project, index) => {
-            createProjectTab(project, index);
-        });
     }
 
     function closeModal() {
