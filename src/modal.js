@@ -4,6 +4,7 @@ export default function modal() {
     const newProjectBtn = document.querySelector("#new-project-button");
     const newTaskBtn = document.querySelector("#footer-add-task");
     const projectForm = document.querySelector("#project-form");
+    const taskForm = document.querySelector("#task-form");
 
 
     function renderProjectModal () {
@@ -26,7 +27,8 @@ export default function modal() {
                 projectForm.reset();
                 closeModal();
             }
-            if(e.target.matches("#modal-add-task")) {
+            if(e.target.matches("#add-task")) {
+                taskForm.reset();
                 closeModal();
             }
         })
