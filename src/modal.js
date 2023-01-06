@@ -24,7 +24,7 @@ export default function modal() {
     function clearModal () {
         document.addEventListener("click", function(e) {
             if(e.target.matches("#add-project")) {
-                projectForm.reset();
+                // projectForm.reset();
                 closeModal();
             }
             if(e.target.matches("#add-task")) {

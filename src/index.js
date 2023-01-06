@@ -1,5 +1,5 @@
 import createProject from "./projects";
-import createTask from "./createTask";
+import tasks from "./tasks";
 
 createProject();
-createTask();
+tasks();
