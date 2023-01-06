@@ -1,4 +1,4 @@
-import renderProjectModal from "./modal";
+import modal from "./modal";
 export default function createProject() {
 
     const newProjectBtn = document.querySelector("#new-project-button");
@@ -7,6 +7,8 @@ export default function createProject() {
     const projectModal = document.querySelector(".project-modal");
     const projectTabs = document.querySelector("#project-tabs");
     const projectTitle = document.querySelector("#project-name");
+    const taskModal = document.querySelector(".new-task-modal");
+    const newTaskBtn = document.querySelector("#add-task");
 
     let projectList = [];
 
@@ -36,19 +38,6 @@ export default function createProject() {
         projectTabs.appendChild(projectTab);
     }
 
-    function closeModal() {
-        projectModal.style.display = "none";
-    }
-
-    function clearModal() {
-        document.addEventListener("click", function(e) {
-            if(e.target.matches("#add-project")) {
-                projectForm.reset();
-                closeModal();
-            }
-        })
-    }
-    clearModal();
     addProject();
-    renderProjectModal();
+    modal();
 }

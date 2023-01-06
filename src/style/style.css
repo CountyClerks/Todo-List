@@ -129,13 +129,13 @@ button {
     align-items: center;
 }
 
-#add-task {
+#footer-add-task {
     border: none;
     background-color: #3f6ad8;
     color: white;
 }
 
-#add-task:hover {
+#footer-add-task:hover {
     background-color: #2046a5;
 }
 
