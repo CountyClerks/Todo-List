@@ -13,28 +13,29 @@ export default function tasks() {
         this.index = index;
     }
 
-
     function addTask() {
-        newTaskBtn.addEventListener("click", () => {
-            let taskIndex = taskList.length;
-            let task = new Task (
-                taskTitle.value,
-                // taskIndex
-            );
-            taskList.push(task);
-            console.log(taskList);
-            createTask();
-            taskForm.reset();
-        })
+        let taskIndex = taskList.length;
+        let task = new Task (
+            taskTitle.value,
+            taskIndex
+        );
+        taskList.push(task);
+        console.log(taskList);
+        createTask(task, taskIndex);
+        taskForm.reset();
     }
 
-    function createTask(task) {
+    newTaskBtn.addEventListener("click", () => {
+        addTask();
+    })
 
+
+    function createTask(task, index) {
+        let taskIndex = index;
         const cardContent = document.querySelector("#card-content");
         const taskCard = document.createElement("div");
         taskCard.setAttribute('id', 'card');
         taskCard.setAttribute('class', 'card');
-        // taskCard.setAttribute('class', `${taskIndex.value}`);
         cardContent.appendChild(taskCard);
 
 
@@ -56,17 +57,17 @@ export default function tasks() {
         taskInput.setAttribute('type', 'checkbox');
         taskInput.setAttribute('id', 'project-done');
         taskInput.setAttribute('name', 'project-done');
-        taskLabel.appendChild(taskInput);
+        taskCardLeft.appendChild(taskInput);
 
         taskInfo.setAttribute('class', 'task-heading');
-        taskInfo.innerHTML = `${taskTitle.value}`;
+        taskInfo.innerText = taskTitle.value;
         taskCardLeft.appendChild(taskInfo);
 
         deleteTask.setAttribute('class', 'trash-button');
+        deleteTask.setAttribute('type', 'button');
+        deleteTask.setAttribute('data-index', taskIndex);
         taskCardRight.appendChild(deleteTask);
-
     }
 
-    addTask();
     modal();
 }
