@@ -2,9 +2,11 @@ import createProject from "./projects";
 import modal from "./modal";
 
 export default function tasks() {
-    const newTaskBtn = document.querySelector("#add-task");
+    const newTaskBtn = document.querySelector("#footer-add-task");
     const taskTitle = document.querySelector("#task-name");
     const taskForm = document.querySelector("#task-form");
+    const cardContainer = document.querySelector("#card-content");
+    const deleteTaskBtn = document.querySelector('.trash-button');
 
     let taskList = [];
 
@@ -20,14 +22,17 @@ export default function tasks() {
             taskIndex
         );
         taskList.push(task);
-        console.log(taskList);
-        createTask(task, taskIndex);
+        tasksToDOM();
+        console.log('Task Added');
         taskForm.reset();
     }
 
-    newTaskBtn.addEventListener("click", () => {
-        addTask();
-    })
+    function tasksToDOM() {
+        taskList.forEach((task, index) => {
+            createTask(task, index);
+        });
+        addListenersToTask();
+    }
 
 
     function createTask(task, index) {
@@ -60,7 +65,7 @@ export default function tasks() {
         taskCardLeft.appendChild(taskInput);
 
         taskInfo.setAttribute('class', 'task-heading');
-        taskInfo.innerText = taskTitle.value;
+        taskInfo.innerText = task.title;
         taskCardLeft.appendChild(taskInfo);
 
         deleteTask.setAttribute('class', 'trash-button');
@@ -69,5 +74,52 @@ export default function tasks() {
         taskCardRight.appendChild(deleteTask);
     }
 
+    function deleteTodo(event) {
+        let index = event.currentTarget.dataset.value;
+        const card = document.querySelector("#card");
+        taskList.splice(index, 1);
+        cardContainer.removeChild(card);
+        tasksToDOM();
+    }
+
+    function addListenersToTask() {
+        const deleteButton = document.querySelectorAll('.trash-button');
+
+        deleteButton.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                deleteTodo(event);
+            });
+        });
+    }
+
+    newTaskBtn.addEventListener('click', () => {
+        taskForm.reset();
+    })
+
+    // function deleteTodoTask(o) {
+    //     let p = o.parentNode.parentNode;
+    //     p.parentNode.removeChild(p);
+
+    // }
+    // deleteTaskBtn.addEventListener("clicl", () => {
+    //     deleteTodoTask();
+    // })
+
+    // taskList.forEach(item => {
+    //     deleteTaskBtn.addEventListener("click", () => {
+    //         let index = taskList.indexOf(item)
+    //         if (index > -1) {
+    //             taskList.splice(index, 1);
+    //             index.target.parentNode.remove();
+    //         }
+    //     })
+    // })
+
+    document.addEventListener("click", function(event) {
+        if(event.target.matches("#add-new-task")) {
+            addTask();
+        }
+    })
     modal();
 }

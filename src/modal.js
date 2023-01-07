@@ -2,7 +2,7 @@ export default function modal() {
     const projectModal = document.querySelector(".project-modal");
     const taskModal = document.querySelector(".new-task-modal");
     const newProjectBtn = document.querySelector("#new-project-button");
-    const newTaskBtn = document.querySelector("#footer-add-task");
+    const newFooterTaskBtn = document.querySelector("#footer-add-task");
     const projectForm = document.querySelector("#project-form");
     const taskForm = document.querySelector("#task-form");
 
@@ -11,7 +11,7 @@ export default function modal() {
         newProjectBtn.addEventListener("click", () => {
             projectModal.style.display = "flex";
         })
-        newTaskBtn.addEventListener("click", () => {
+        newFooterTaskBtn.addEventListener("click", () => {
             taskModal.style.display = "flex";
         })
     }
@@ -27,7 +27,7 @@ export default function modal() {
                 // projectForm.reset();
                 closeModal();
             }
-            if(e.target.matches("#add-task")) {
+            if(e.target.matches("#add-new-task")) {
                 taskForm.reset();
                 closeModal();
             }
