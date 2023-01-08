@@ -4,11 +4,14 @@
   "description": "Todo list application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CountyClerks/Todo-List.git"
+    "url": "git+https://github.com/CountyClerks/Todo-List.git",
+    "homepage": "http://CountyClerks.github.io/Todo-List"
   },
   "author": "CountyClerks",
   "license": "ISC",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/CountyClerks/Todo-List#readme",
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   }
