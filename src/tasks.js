@@ -6,7 +6,6 @@ export default function tasks() {
     const taskTitle = document.querySelector("#task-name");
     const taskForm = document.querySelector("#task-form");
     const cardContainer = document.querySelector("#card-content");
-    const deleteTaskBtn = document.querySelector('.trash-button');
 
     let taskList = [];
 
@@ -22,27 +21,18 @@ export default function tasks() {
             taskIndex
         );
         taskList.push(task);
-        tasksToDOM();
-        console.log('Task Added');
+        createTask(task, taskIndex);
+        addListenersToTask();
+        console.log(taskList);
         taskForm.reset();
     }
 
-    function tasksToDOM() {
-        taskList.forEach((task, index) => {
-            createTask(task, index);
-        });
-        addListenersToTask();
-    }
-
-
     function createTask(task, index) {
         let taskIndex = index;
-        const cardContent = document.querySelector("#card-content");
         const taskCard = document.createElement("div");
         taskCard.setAttribute('id', 'card');
         taskCard.setAttribute('class', 'card');
-        cardContent.appendChild(taskCard);
-
+        taskCard.setAttribute('data-index', taskIndex);
 
         const taskCardLeft = document.createElement("div");
         taskCardLeft.setAttribute('id', 'card-left');
@@ -69,26 +59,33 @@ export default function tasks() {
         taskCardLeft.appendChild(taskInfo);
 
         deleteTask.setAttribute('class', 'trash-button');
+        deleteTask.setAttribute('id', 'trash-button');
         deleteTask.setAttribute('type', 'button');
         deleteTask.setAttribute('data-index', taskIndex);
         taskCardRight.appendChild(deleteTask);
+        cardContainer.appendChild(taskCard);
+
     }
 
     function deleteTodo(event) {
         let index = event.currentTarget.dataset.value;
-        const card = document.querySelector("#card");
+        let target = event.target;
+        let parent = target.parentElement;
+        let cardNode = parent.parentElement;
         taskList.splice(index, 1);
-        cardContainer.removeChild(card);
-        tasksToDOM();
+
+        cardNode.remove();
+
     }
 
     function addListenersToTask() {
-        const deleteButton = document.querySelectorAll('.trash-button');
+        const deleteButton = document.querySelectorAll('#trash-button');
 
         deleteButton.forEach((button) => {
             button.addEventListener('click', (event) => {
                 event.preventDefault();
                 deleteTodo(event);
+                // deleteButton.removeParent();
             });
         });
     }
@@ -96,25 +93,6 @@ export default function tasks() {
     newTaskBtn.addEventListener('click', () => {
         taskForm.reset();
     })
-
-    // function deleteTodoTask(o) {
-    //     let p = o.parentNode.parentNode;
-    //     p.parentNode.removeChild(p);
-
-    // }
-    // deleteTaskBtn.addEventListener("clicl", () => {
-    //     deleteTodoTask();
-    // })
-
-    // taskList.forEach(item => {
-    //     deleteTaskBtn.addEventListener("click", () => {
-    //         let index = taskList.indexOf(item)
-    //         if (index > -1) {
-    //             taskList.splice(index, 1);
-    //             index.target.parentNode.remove();
-    //         }
-    //     })
-    // })
 
     document.addEventListener("click", function(event) {
         if(event.target.matches("#add-new-task")) {
